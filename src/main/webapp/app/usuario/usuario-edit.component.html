@@ -1,0 +1,19 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@usuario.edit.headline">Edit Usuario</h1>
+    <div>
+        <a routerLink="/usuarios" class="btn btn-secondary" i18n="@@usuario.edit.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="editForm" field="id" rowType="number" i18n-label="@@usuario.id.label" label="Id" />
+    <app-input-row [group]="editForm" field="nome" i18n-label="@@usuario.nome.label" label="Nome" />
+    <app-input-row [group]="editForm" field="cpf" i18n-label="@@usuario.cpf.label" label="Cpf" />
+    <app-input-row [group]="editForm" field="email" i18n-label="@@usuario.email.label" label="Email" />
+    <app-input-row [group]="editForm" field="senha" i18n-label="@@usuario.senha.label" label="Senha" />
+    <app-input-row [group]="editForm" field="active" rowType="checkbox" i18n-label="@@usuario.active.label" label="Active" />
+    <app-input-row [group]="editForm" field="telefone" i18n-label="@@usuario.telefone.label" label="Telefone" />
+    <app-input-row [group]="editForm" field="nascimento" datepicker="datepicker" i18n-label="@@usuario.nascimento.label" label="Nascimento" />
+    <app-input-row [group]="editForm" field="banco" rowType="select" [options]="bancoValues" i18n-label="@@usuario.banco.label" label="Banco" />
+    <app-input-row [group]="editForm" field="domicilio" rowType="select" [options]="domicilioValues" i18n-label="@@usuario.domicilio.label" label="Domicilio" />
+    <input type="submit" i18n-value="@@usuario.edit.headline" value="Edit Usuario" class="btn btn-primary mt-4" />
+</form>

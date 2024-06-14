@@ -1,0 +1,43 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@aeroporto.list.headline">Aeroportos</h1>
+    <div>
+        <a routerLink="/aeroportos/add" class="btn btn-primary ms-2" i18n="@@aeroporto.list.createNew">Create new Aeroporto</a>
+    </div>
+</div>
+@if (!aeroportoes || aeroportoes.length === 0) {
+<div i18n="@@aeroporto.list.empty">No Aeroportos could be found.</div>
+} @else {
+<div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+        <thead>
+            <tr>
+                <th scope="col" i18n="@@aeroporto.id.label">Id</th>
+                <th scope="col" i18n="@@aeroporto.sigla.label">Sigla</th>
+                <th scope="col" i18n="@@aeroporto.uf.label">Uf</th>
+                <th scope="col" i18n="@@aeroporto.cidade.label">Cidade</th>
+                <th scope="col" i18n="@@aeroporto.aeroporto.label">Aeroporto</th>
+                <th scope="col" i18n="@@aeroporto.localidade.label">Localidade</th>
+                <th><!-- --></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (aeroporto of aeroportoes; track aeroporto.id) {
+            <tr>
+                <td>{{ aeroporto.id }}</td>
+                <td>{{ aeroporto.sigla }}</td>
+                <td>{{ aeroporto.uf }}</td>
+                <td>{{ aeroporto.cidade }}</td>
+                <td>{{ aeroporto.aeroporto }}</td>
+                <td>@if (aeroporto.localidade) { {{aeroporto.localidade}}  }</td>
+                <td>
+                    <div class="float-end text-nowrap">
+                        <a [routerLink]="['/aeroportos/edit', aeroporto.id]" class="btn btn-sm btn-secondary" i18n="@@aeroporto.list.edit">Edit</a>
+                        <button type="button" (click)="confirmDelete(aeroporto.id!)" class="btn btn-sm btn-secondary" i18n="@@aeroporto.list.delete">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}

@@ -1,0 +1,15 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@aeroporto.edit.headline">Edit Aeroporto</h1>
+    <div>
+        <a routerLink="/aeroportos" class="btn btn-secondary" i18n="@@aeroporto.edit.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="editForm" field="id" rowType="number" i18n-label="@@aeroporto.id.label" label="Id" />
+    <app-input-row [group]="editForm" field="sigla" i18n-label="@@aeroporto.sigla.label" label="Sigla" />
+    <app-input-row [group]="editForm" field="uf" i18n-label="@@aeroporto.uf.label" label="Uf" />
+    <app-input-row [group]="editForm" field="cidade" i18n-label="@@aeroporto.cidade.label" label="Cidade" />
+    <app-input-row [group]="editForm" field="aeroporto" i18n-label="@@aeroporto.aeroporto.label" label="Aeroporto" />
+    <app-input-row [group]="editForm" field="localidade" rowType="select" [options]="localidadeValues" i18n-label="@@aeroporto.localidade.label" label="Localidade" />
+    <input type="submit" i18n-value="@@aeroporto.edit.headline" value="Edit Aeroporto" class="btn btn-primary mt-4" />
+</form>

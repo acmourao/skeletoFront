@@ -1,0 +1,45 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@banco.list.headline">Bancos</h1>
+    <div>
+        <a routerLink="/bancos/add" class="btn btn-primary ms-2" i18n="@@banco.list.createNew">Create new Banco</a>
+    </div>
+</div>
+@if (!bancoes || bancoes.length === 0) {
+<div i18n="@@banco.list.empty">No Bancos could be found.</div>
+} @else {
+<div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+        <thead>
+            <tr>
+<!--                <th scope="col" i18n="@@banco.id.label">Id</th>-->
+                <th scope="col" i18n="@@banco.compe.label">Compe</th>
+                <th scope="col" i18n="@@banco.cnpj.label">Cnpj</th>
+                <th scope="col" i18n="@@banco.razaoSocial.label">Razao Social</th>
+                <th scope="col" i18n="@@banco.nome.label">Nome</th>
+                <th scope="col" i18n="@@banco.produtos.label">Produtos</th>
+                <th scope="col" i18n="@@banco.url.label">Url</th>
+                <th><!-- --></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (banco of bancoes; track banco.id) {
+            <tr>
+<!--                <td>{{ banco.id }}</td>-->
+                <td>{{ banco.compe }}</td>
+                <td>{{ banco.cnpj }}</td>
+                <td>{{ banco.razaoSocial }}</td>
+                <td>{{ banco.nome }}</td>
+                <td>{{ banco.produtos }}</td>
+                <td>{{ banco.url }}</td>
+                <td>
+                    <div class="float-end text-nowrap">
+                        <a [routerLink]="['/bancos/edit', banco.id]" class="btn btn-sm btn-secondary" i18n="@@banco.list.edit">Edit</a>
+                        <button type="button" (click)="confirmDelete(banco.id!)" class="btn btn-sm btn-secondary" i18n="@@banco.list.delete">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}

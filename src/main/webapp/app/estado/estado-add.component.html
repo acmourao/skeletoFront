@@ -1,0 +1,17 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@estado.add.headline">Add Estado</h1>
+    <div>
+        <a routerLink="/estados" class="btn btn-secondary" i18n="@@estado.add.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="addForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="addForm" field="uf" i18n-label="@@estado.uf.label" label="Uf" />
+    <app-input-row [group]="addForm" field="name" i18n-label="@@estado.name.label" label="Name" />
+    <app-input-row [group]="addForm" field="gentilic" i18n-label="@@estado.gentilic.label" label="Gentilic" />
+    <app-input-row [group]="addForm" field="gentilicAlternative" i18n-label="@@estado.gentilicAlternative.label" label="Gentilic Alternative" />
+    <app-input-row [group]="addForm" field="macroregion" i18n-label="@@estado.macroregion.label" label="Macroregion" />
+    <app-input-row [group]="addForm" field="website" i18n-label="@@estado.website.label" label="Website" />
+    <app-input-row [group]="addForm" field="timezone" i18n-label="@@estado.timezone.label" label="Timezone" />
+    <app-input-row [group]="addForm" field="flagImage" i18n-label="@@estado.flagImage.label" label="Flag Image" />
+    <input type="submit" i18n-value="@@estado.add.headline" value="Add Estado" class="btn btn-primary mt-4" />
+</form>

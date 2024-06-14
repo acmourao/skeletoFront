@@ -1,0 +1,15 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@banco.add.headline">Add Banco</h1>
+    <div>
+        <a routerLink="/bancos" class="btn btn-secondary" i18n="@@banco.add.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="addForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="addForm" field="compe" i18n-label="@@banco.compe.label" label="Compe" />
+    <app-input-row [group]="addForm" field="cnpj" i18n-label="@@banco.cnpj.label" label="Cnpj" />
+    <app-input-row [group]="addForm" field="razaoSocial" i18n-label="@@banco.razaoSocial.label" label="Razao Social" />
+    <app-input-row [group]="addForm" field="nome" i18n-label="@@banco.nome.label" label="Nome" />
+    <app-input-row [group]="addForm" field="produtos" i18n-label="@@banco.produtos.label" label="Produtos" />
+    <app-input-row [group]="addForm" field="url" i18n-label="@@banco.url.label" label="Url" />
+    <input type="submit" i18n-value="@@banco.add.headline" value="Add Banco" class="btn btn-primary mt-4" />
+</form>

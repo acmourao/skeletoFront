@@ -1,0 +1,37 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@municipio.list.headline">Municipios</h1>
+    <div>
+        <a routerLink="/municipios/add" class="btn btn-primary ms-2" i18n="@@municipio.list.createNew">Create new Municipio</a>
+    </div>
+</div>
+@if (!municipios || municipios.length === 0) {
+<div i18n="@@municipio.list.empty">No Municipios could be found.</div>
+} @else {
+<div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+        <thead>
+            <tr>
+                <th scope="col" i18n="@@municipio.id.label">Id</th>
+                <th scope="col" i18n="@@municipio.municipio.label">Municipio</th>
+                <th scope="col" i18n="@@municipio.uf.label">Uf</th>
+                <th><!-- --></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (municipio of municipios; track municipio.id) {
+            <tr>
+                <td>{{ municipio.id }}</td>
+                <td>{{ municipio.municipio }}</td>
+                <td>{{ municipio.uf }}</td>
+                <td>
+                    <div class="float-end text-nowrap">
+                        <a [routerLink]="['/municipios/edit', municipio.id]" class="btn btn-sm btn-secondary" i18n="@@municipio.list.edit">Edit</a>
+                        <button type="button" (click)="confirmDelete(municipio.id!)" class="btn btn-sm btn-secondary" i18n="@@municipio.list.delete">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}
