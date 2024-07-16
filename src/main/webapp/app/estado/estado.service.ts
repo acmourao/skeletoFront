@@ -10,7 +10,7 @@ import { EstadoDTO } from 'app/estado/estado.model';
 export class EstadoService {
 
   http = inject(HttpClient);
-  resourcePath = environment.apiPath + '/api/estados';
+  resourcePath = environment.apiPath + 'estados';
 
   getAllEstadoes() {
     return this.http.get<EstadoDTO[]>(this.resourcePath);

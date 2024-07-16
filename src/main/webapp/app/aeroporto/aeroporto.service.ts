@@ -12,7 +12,7 @@ import { transformRecordToMap } from 'app/common/utils';
 export class AeroportoService {
 
   http = inject(HttpClient);
-  resourcePath = environment.apiPath + '/api/aeroportos';
+  resourcePath = environment.apiPath + 'aeroportos';
 
   getAllAeroportoes() {
     return this.http.get<AeroportoDTO[]>(this.resourcePath);

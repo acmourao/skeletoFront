@@ -10,7 +10,7 @@ import { MunicipioDTO } from 'app/municipio/municipio.model';
 export class MunicipioService {
 
   http = inject(HttpClient);
-  resourcePath = environment.apiPath + '/api/municipios';
+  resourcePath = environment.apiPath + 'municipios';
 
   getAllMunicipios() {
     return this.http.get<MunicipioDTO[]>(this.resourcePath);

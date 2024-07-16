@@ -12,7 +12,7 @@ import { transformRecordToMap } from 'app/common/utils';
 export class UsuarioService {
 
   http = inject(HttpClient);
-  resourcePath = environment.apiPath + '/api/usuarios';
+  resourcePath = environment.apiPath + 'usuarios';
 
   getAllUsuarios() {
     return this.http.get<UsuarioDTO[]>(this.resourcePath);
@@ -35,12 +35,12 @@ export class UsuarioService {
   }
 
   getBancoValues() {
-    return this.http.get<Record<string,string>>(this.resourcePath + '/bancoValues')
+    return this.http.get<Record<string,string>>(environment.apiPath + 'bancos')
         .pipe(map(transformRecordToMap));
   }
 
   getDomicilioValues() {
-    return this.http.get<Record<string,string>>(this.resourcePath + '/domicilioValues')
+    return this.http.get<Record<string,string>>(environment.apiPath + 'municipios')
         .pipe(map(transformRecordToMap));
   }
 

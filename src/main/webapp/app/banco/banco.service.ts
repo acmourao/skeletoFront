@@ -10,7 +10,7 @@ import { BancoDTO } from 'app/banco/banco.model';
 export class BancoService {
 
   http = inject(HttpClient);
-  resourcePath = environment.apiPath + '/api/bancos';
+  resourcePath = environment.apiPath + 'bancos';
 
   getAllBancoes() {
     return this.http.get<BancoDTO[]>(this.resourcePath);

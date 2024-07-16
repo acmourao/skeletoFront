@@ -51,21 +51,22 @@ export class UsuarioEditComponent implements OnInit {
 
   ngOnInit() {
     this.currentId = +this.route.snapshot.params['id'];
-    this.usuarioService.getBancoValues()
-        .subscribe({
-          next: (data) => this.bancoValues = data,
-          error: (error) => this.errorHandler.handleServerError(error.error)
-        });
-    this.usuarioService.getDomicilioValues()
-        .subscribe({
-          next: (data) => this.domicilioValues = data,
-          error: (error) => this.errorHandler.handleServerError(error.error)
-        });
     this.usuarioService.getUsuario(this.currentId!)
         .subscribe({
           next: (data) => updateForm(this.editForm, data),
           error: (error) => this.errorHandler.handleServerError(error.error)
         });
+      this.usuarioService.getBancoValues()
+          .subscribe({
+            next: (data) => this.bancoValues = data,
+            error: (error) => this.errorHandler.handleServerError(error.error)
+          });
+      this.usuarioService.getDomicilioValues()
+          .subscribe({
+            next: (data) => this.domicilioValues = data,
+            error: (error) => this.errorHandler.handleServerError(error.error)
+          });
+
   }
 
   handleSubmit() {
